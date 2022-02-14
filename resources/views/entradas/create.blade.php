@@ -2,32 +2,37 @@
 
 @section('content')
 
-    <h1>Nueva entrada</h1>
+    <h1 class="mt-3">Nueva entrada</h1>
 
     <form action="{{ route('entradas.store') }}" method="POST">
         @csrf
-        <div>
-            <label>Título: </label>
-            <input type="text" name="titulo"/>
-            <span>{{ $errors->first('titulo') }}</span>
+        <div class="row mb-3">
+            <label class="col-2 form-label">Título: </label>
+            <div class="col-10">
+                <input class="form-control" type="text" name="titulo"/>
+                <span class="text-danger">{{ $errors->first('titulo') }}</span>
+            </div>
         </div>
-        <div>
-            <label>Texto: </label>
-            <textarea name="texto"></textarea>
+        <div class="row mb-3">
+            <label class="col-2 form-label">Texto: </label>
+            <div class="col-10">
+                <textarea class="form-control" name="texto"></textarea>
+            </div>
         </div>
-        <div>
-            <label>Fecha: </label>
-            <input type="datetime-local" name="fecha" value="{{ now() }}"/>
+        <div class="row mb-3">
+            <label class="col-2 form-label">Fecha: </label>
+            <div class="col-10">
+                <input class="form-control" type="datetime-local" name="fecha" value="{{ now() }}"/>
+            </div>
         </div>
-        <div>
-            <label>Visible: </label>
-            <input type="checkbox" name="visible" checked/>
+        <div class="row mb-3">
+            <label class="col-2 form-label">Visible: </label>
+            <div class="col-10">
+                <input class="form-check-input" type="checkbox" name="visible" checked/>
+            </div>
         </div>
-        <input type="submit" name="guardar" value="Guardar"/>
+        <input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/>
+        <a class="link-secondary ms-2" href="{{ route('entradas.index') }}">Cancelar</a>
     </form>
-
-    <p>
-        <a href="{{ route('entradas.index') }}">Cancelar</a>
-    </p>
 
 @endsection

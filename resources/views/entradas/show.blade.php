@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h1>{{ $entrada->titulo }}</h1>
+    <h1 class="mt-3">{{ $entrada->titulo }}</h1>
 
-    <table border="1">
-        <tbody>
+    <table class="table table-striped">
+        <tbody class="align-middle">
         <tr>
             <th>Texto</th>
             <td>{{ $entrada->texto }}</td>
@@ -21,6 +21,6 @@
         </tbody>
     </table>
 
-    <p>
-        <a href="{{ route('entradas.index') }}">Volver</a>
-    </p>
+    <a class="btn btn-secondary mt-3" href="{{ route('entradas.index') }}">Volver</a>
+
+@endsection

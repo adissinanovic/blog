@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entrada extends Model
+class Comentario extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'titulo', 'texto', 'fecha', 'visible'
+        'email', 'texto', 'fecha', 'publicado'
     ];
 
     protected $casts = [
@@ -19,8 +19,8 @@ class Entrada extends Model
         'fecha' => 'datetime',
     ];
 
-    public function comentarios()
+    public function entrada()
     {
-        return $this->hasMany(Comentario::class);
+        return $this->belongsTo(Entrada::class);
     }
 }
